@@ -1,0 +1,19 @@
+# Environnement virtuel Python
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Fichiers sensibles
+.env
+*.key
+
+# Base de données (souvent trop lourde pour Git)
+*.db
+
+# Fichiers système
+.DS_Store
+.vscode/
+
+# Streamlit
+.streamlit/secrets.toml

@@ -1,0 +1,867 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary: #166534;
+  --primary-dark: #14532d;
+  --primary-soft: #ecfdf3;
+  --bg: #f6f8f7;
+  --card: #ffffff;
+  --text: #17201b;
+  --muted: #68736d;
+  --border: #e5e9e6;
+  --shadow: 0 8px 30px rgba(20, 40, 28, 0.06);
+}
+
+/* ============================================================
+   GLOBAL & ANIMATIONS
+   ============================================================ */
+
+html,
+body,
+[class*="css"] {
+  font-family: "Inter", sans-serif;
+}
+
+.stApp {
+  background: var(--bg);
+}
+
+/* Fix text and layout colors in the top Streamlit header to deep black */
+[data-testid="stHeader"] *, 
+[data-testid="stHeader"] a, 
+[data-testid="stHeader"] button,
+.stAppDeployButton {
+  color: #17201b !important;
+  fill: #17201b !important;
+}
+
+[data-testid="stHeader"] {
+  background: transparent;
+}
+
+.block-container {
+  max-width: 1450px;
+  padding: 2.2rem 3rem 4rem;
+  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+section[data-testid="stSidebar"] {
+  background: #10271b;
+  border-right: 0;
+}
+
+section[data-testid="stSidebar"] > div {
+  background: #10271b;
+}
+
+section[data-testid="stSidebar"] * {
+  color: #e9f2ec;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 8px 28px;
+}
+
+.sidebar-logo {
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  background: #eaf8ee;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+}
+
+.sidebar-title {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.sidebar-country {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #9bb6a3 !important;
+  margin-top: 2px;
+}
+
+.nav-label {
+  color: #7f9b88 !important;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  padding: 0 8px 8px;
+}
+
+.sidebar-spacer {
+  height: 32vh;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+
+  padding: 11px;
+  margin: 10px 0;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-name {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-role {
+  font-size: 10px;
+  color: #91aa99 !important;
+}
+
+/* ============================================================
+   PAGE HEADER
+   ============================================================ */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  margin-bottom: 7px;
+}
+
+.page-header h1 {
+  font-size: 32px;
+  line-height: 1.15;
+
+  color: var(--text);
+
+  font-weight: 800;
+  letter-spacing: -1.2px;
+
+  margin: 0;
+}
+
+.page-header p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* ============================================================
+   KPI CARDS WITH SMOOTH HOVER ANIMATIONS
+   ============================================================ */
+
+.kpi-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px 21px;
+  box-shadow: var(--shadow);
+  min-height: 115px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(20, 40, 28, 0.1);
+}
+
+.kpi-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #78837d;
+}
+
+.kpi-value {
+  color: var(--text);
+
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+
+  margin-top: 9px;
+}
+
+.kpi-note {
+  color: #8b958f;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.section-gap {
+  height: 18px;
+}
+
+/* ============================================================
+   INSIGHT CARD
+   ============================================================ */
+
+.insight-card {
+  background: var(--primary-soft);
+
+  border: 1px solid #d6efdd;
+  border-radius: 16px;
+
+  padding: 18px;
+
+  display: flex;
+  gap: 13px;
+
+  margin-bottom: 12px;
+}
+
+.insight-icon {
+  font-size: 24px;
+}
+
+.insight-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.insight-text {
+  font-size: 12px;
+  color: #52635a;
+
+  line-height: 1.6;
+
+  margin-top: 5px;
+}
+
+/* ============================================================
+   MINI STAT
+   ============================================================ */
+
+.mini-stat {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 13px 2px;
+
+  border-bottom: 1px solid var(--border);
+
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.mini-stat b {
+  color: var(--text);
+}
+
+/* ============================================================
+   FORECAST
+   ============================================================ */
+
+.forecast-intro {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  background: #eef8f1;
+
+  border: 1px solid #dcefe1;
+  border-radius: 18px;
+
+  padding: 17px 20px;
+
+  margin-bottom: 22px;
+}
+
+.forecast-icon {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 13px;
+
+  background: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+}
+
+.forecast-title {
+  font-weight: 800;
+  color: var(--primary-dark);
+  font-size: 14px;
+}
+
+.forecast-text {
+  color: #607168;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* ============================================================
+   PREDICTION CARD
+   ============================================================ */
+
+.prediction-card {
+  background: linear-gradient(135deg, #123d25, #1c6039);
+  color: white;
+  border-radius: 22px;
+  padding: 28px;
+  text-align: center;
+  margin: 10px 0 24px;
+  box-shadow: 0 14px 40px rgba(17, 67, 37, 0.18);
+  animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 14px 40px rgba(17, 67, 37, 0.18); }
+  100% { box-shadow: 0 14px 40px rgba(22, 101, 52, 0.35); }
+}
+
+.prediction-label {
+  color: #a9d3b5;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.prediction-value {
+  font-size: 43px;
+  font-weight: 800;
+
+  letter-spacing: -1.8px;
+
+  margin: 8px 0;
+}
+
+.prediction-value span {
+  font-size: 14px;
+  font-weight: 500;
+
+  letter-spacing: 0;
+
+  color: #c1dfc9;
+}
+
+.prediction-period {
+  color: #b9d5c1;
+  font-size: 12px;
+}
+
+.prediction-change {
+  display: inline-block;
+
+  margin-top: 14px;
+
+  padding: 6px 11px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  border-radius: 20px;
+
+  font-size: 11px;
+}
+
+/* ============================================================
+   PIPELINE
+   ============================================================ */
+
+.pipeline {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+
+  background: white;
+
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  padding: 20px;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  background: #f7faf8;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  padding: 11px 14px;
+
+  font-size: 11px;
+
+  color: var(--text);
+}
+
+.pipeline-step b {
+  color: var(--primary);
+}
+
+.pipeline-arrow {
+  color: #a0aaa4;
+}
+
+/* ============================================================
+   LOGIN PAGE & SLIMMER COMPACT FORM
+   ============================================================ */
+
+.login-page {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.login-form {
+  width: 290px; 
+  margin: 0 auto;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8e4; 
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(16, 39, 27, 0.04);
+  text-align: center;
+}
+
+/* ============================================================
+   LOGIN LOGO
+   ============================================================ */
+
+.brand-mark {
+  font-size: 28px;
+  margin-bottom: 3px;
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.brand-name {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.6px;
+}
+
+.brand-subtitle {
+  font-size: 8px;
+
+  letter-spacing: 2.6px;
+
+  color: var(--primary);
+
+  font-weight: 800;
+
+  margin-top: 3px;
+}
+
+/* ============================================================
+   LOGIN GREEN LINE
+   ============================================================ */
+
+.login-line {
+  width: 30px;
+  height: 2.5px;
+
+  background: var(--primary);
+
+  border-radius: 5px;
+
+  margin: 10px auto;
+}
+
+/* ============================================================
+   LOGIN TEXT
+   ============================================================ */
+
+.login-form h2 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 3px 0;
+}
+
+.login-form p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+}
+
+/* ============================================================
+   LOGIN INPUTS
+   ============================================================ */
+
+.login-page [data-testid="stTextInput"] {
+  width: 100%;
+
+  margin: 0 auto 5px auto;
+}
+
+.login-page [data-testid="stTextInput"] label {
+  font-size: 10px;
+
+  font-weight: 600;
+
+  color: #4f5d55;
+}
+
+.login-page [data-testid="stTextInput"] input {
+  height: 38px;
+  min-height: 38px;
+  border: 1px solid #d5ded8;
+  border-radius: 8px;
+  background: #fbfcfb;
+  padding: 0 11px;
+  font-size: 12px;
+  color: var(--text);
+  transition: all 0.2s ease;
+}
+
+.login-page [data-testid="stTextInput"] input:focus {
+  border-color: var(--primary);
+
+  background: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.08);
+}
+
+/* ============================================================
+   LOGIN BUTTON
+   ============================================================ */
+
+.login-page [data-testid="stButton"] {
+  width: 100%;
+
+  margin-top: 5px;
+}
+
+.login-page [data-testid="stButton"] button {
+  width: 100%;
+
+  height: 38px;
+
+  border-radius: 8px;
+
+  border: 1px solid var(--primary);
+
+  background: var(--primary);
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition: all 0.2s ease;
+}
+
+.login-page [data-testid="stButton"] button:hover {
+  background: var(--primary-dark);
+
+  border-color: var(--primary-dark);
+
+  transform: translateY(-1px);
+
+  box-shadow: 0 5px 15px rgba(22, 101, 52, 0.18);
+}
+
+/* ============================================================
+   LOGIN ERROR
+   ============================================================ */
+
+.login-page [data-testid="stAlert"] {
+  margin-top: 10px;
+
+  border-radius: 8px;
+
+  font-size: 10px;
+}
+
+/* ============================================================
+   LOGIN FOOTER
+   ============================================================ */
+
+.login-footer {
+  color: #99a29d;
+
+  font-size: 9px;
+
+  margin-top: 12px;
+
+  text-align: center;
+}
+
+/* ============================================================
+   STREAMLIT METRICS
+   ============================================================ */
+
+div[data-testid="stMetric"] {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  transition: transform 0.3s ease;
+}
+
+div[data-testid="stMetric"]:hover {
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   GENERAL BUTTONS
+   ============================================================ */
+
+button[kind="primary"] {
+  background: var(--primary);
+
+  border-color: var(--primary);
+}
+
+button[kind="primary"]:hover {
+  background: var(--primary-dark);
+
+  border-color: var(--primary-dark);
+}
+
+/* ============================================================
+   TITLES
+   ============================================================ */
+
+h3 {
+  font-weight: 800 !important;
+
+  color: var(--text);
+}
+
+/* ============================================================
+   DATAFRAME
+   ============================================================ */
+
+[data-testid="stDataFrame"] {
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+}
+
+/* ============================================================
+   SELECTBOX
+   ============================================================ */
+
+[data-testid="stSelectbox"] {
+  margin-bottom: 8px;
+}
+
+[data-testid="stSelectbox"] label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ============================================================
+   NUMBER INPUT
+   ============================================================ */
+
+[data-testid="stNumberInput"] label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ============================================================
+   DOWNLOAD BUTTON
+   ============================================================ */
+
+[data-testid="stDownloadButton"] button {
+  border-radius: 9px;
+
+  border: 1px solid var(--border);
+
+  background: white;
+
+  color: var(--text);
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+[data-testid="stDownloadButton"] button:hover {
+  border-color: var(--primary);
+
+  color: var(--primary);
+}
+
+/* ============================================================
+   FILE UPLOADER
+   ============================================================ */
+
+[data-testid="stFileUploader"] {
+  border-radius: 14px;
+}
+
+[data-testid="stFileUploaderDropzone"] {
+  border: 1px dashed #cbd7cf;
+
+  border-radius: 14px;
+
+  background: #fafcfb;
+}
+
+/* ============================================================
+   EXPANDER
+   ============================================================ */
+
+[data-testid="stExpander"] {
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+
+  background: white;
+}
+
+/* ============================================================
+   ALERTS
+   ============================================================ */
+
+[data-testid="stAlert"] {
+  border-radius: 12px;
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f4f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b9c5bd;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8fa097;
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .block-container {
+    padding: 1.2rem;
+  }
+
+  .page-header h1 {
+    font-size: 26px;
+  }
+
+  .sidebar-spacer {
+    height: 8vh;
+  }
+
+  .login-form {
+    width: 92%;
+    max-width: 290px;
+    padding: 20px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+  .login-page {
+    min-height: 75vh;
+
+    padding: 12px;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 290px;
+    padding: 20px 18px;
+  }
+
+  .brand-name {
+    font-size: 19px;
+  }
+
+  .brand-mark {
+    font-size: 26px;
+  }
+
+  .page-header h1 {
+    font-size: 23px;
+  }
+}

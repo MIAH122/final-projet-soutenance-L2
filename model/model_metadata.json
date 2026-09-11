@@ -1,0 +1,25 @@
+{
+  "r2": 0.9655408778565451,
+  "mae": 112.23860301860354,
+  "rmse": 161.1239645649682,
+  "n_total_after_features": 5336,
+  "n_train": 4268,
+  "n_test": 1068,
+  "min_year": 2004,
+  "max_year": 2026,
+  "n_regions": 22,
+  "priceflags": [
+    "actual",
+    "aggregate"
+  ],
+  "model": "Random Forest",
+  "test_protocol": "train_test_split(test_size=0.2, random_state=42)",
+  "features": [
+    "annee",
+    "mois",
+    "admin1_encoded",
+    "price_lag1",
+    "price_lag3",
+    "price_rolling3"
+  ]
+}
